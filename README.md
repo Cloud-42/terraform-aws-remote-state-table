@@ -8,7 +8,16 @@
 <p align="center">Need help with your Cloud builds <a href="https://www.cloud42.io/contact/" target="_blank" rel="ContactUS"> GET IN TOUCH</a>.</p>
 
 ---
-### Basic module to create the DynamoDB table that is used to lock the Terraform state file.
 
-### N.B.
-### Currently interpolations are not allowed when declaring the s3 backend. Therefore use this module to create the required table and then add the name of the table to the s3 backend declaration. 
+## Usage
+
+To import the module add the following to the your TF file:
+```
+module "locktable" {
+  source    = "git::https://github.com/Cloud-42/terraform-aws-remote-state-locking-table.git"
+
+  name        = var.name
+  environment = var.environment
+
+}
+```
