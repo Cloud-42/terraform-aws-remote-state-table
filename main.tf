@@ -2,7 +2,7 @@
 # Create Dynamo DB table
 # --------------------------
 resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
-  name           = "${var.name_prefix}-terraformstate-locktable"
+  name           = var.name 
   hash_key       = "LockID"
   read_capacity  = var.read_capacity
   write_capacity = var.write_capacity
@@ -12,8 +12,6 @@ resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
     type = "S"
   }
 
-  tags = {
-    Name = "DynamoDB Terraform State Lock Table for ${var.environment}"
-  }
+  tags = var.tags
 }
 
