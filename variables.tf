@@ -10,10 +10,6 @@ variable "name" {
   type        = string
   description = "DynamoDB table name"
 }
-variable "environment" {
-  type        = string
-  description = "Environment where the table is to be deployed, e.g. DEV, UAT or PROD"
-}
 variable "tags" {
   description = "Tags to assign to the table"
   type        = map(string)
